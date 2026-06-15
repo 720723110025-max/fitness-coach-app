@@ -1,0 +1,218 @@
+.clock-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 40px 20px;
+}
+
+.clock-header {
+  max-width: 1400px;
+  margin: 0 auto 40px;
+  text-align: center;
+  color: white;
+}
+
+.clock-header h1 {
+  font-size: 48px;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.controls {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.format-toggle,
+.add-tz-btn {
+  background: white;
+  color: #667eea;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 25px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-size: 16px;
+}
+
+.format-toggle:hover,
+.add-tz-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.dropdown-wrapper {
+  position: relative;
+}
+
+.timezone-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  max-height: 400px;
+  overflow-y: auto;
+  min-width: 200px;
+  z-index: 10;
+  margin-top: 10px;
+}
+
+.tz-option {
+  display: block;
+  width: 100%;
+  padding: 12px 20px;
+  border: none;
+  background: none;
+  text-align: left;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.2s;
+  color: #333;
+}
+
+.tz-option:hover:not(:disabled) {
+  background-color: #f0f0f0;
+}
+
+.tz-option:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.tz-option:first-child {
+  border-radius: 10px 10px 0 0;
+}
+
+.tz-option:last-child {
+  border-radius: 0 0 10px 10px;
+}
+
+.clocks-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 30px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.clock-card {
+  background: white;
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  position: relative;
+  transition: all 0.3s;
+  animation: slideIn 0.5s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.clock-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.3);
+}
+
+.clock-city {
+  margin-bottom: 20px;
+}
+
+.clock-city h2 {
+  font-size: 28px;
+  color: #333;
+  margin: 0;
+  margin-bottom: 8px;
+}
+
+.offset {
+  display: inline-block;
+  background: #667eea;
+  color: white;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.clock-display {
+  margin-bottom: 20px;
+}
+
+.time {
+  font-size: 54px;
+  font-weight: bold;
+  color: #667eea;
+  font-family: 'Monaco', 'Courier New', monospace;
+  margin-bottom: 10px;
+  letter-spacing: 2px;
+}
+
+.date {
+  font-size: 16px;
+  color: #999;
+  font-weight: 500;
+}
+
+.remove-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: #ff6b6b;
+  color: white;
+  border: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.remove-btn:hover {
+  background: #ee5a52;
+  transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+  .clock-header h1 {
+    font-size: 32px;
+  }
+
+  .clocks-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+  }
+
+  .clock-card {
+    padding: 20px;
+  }
+
+  .time {
+    font-size: 36px;
+  }
+
+  .controls {
+    flex-direction: column;
+  }
+
+  .format-toggle,
+  .add-tz-btn {
+    width: 100%;
+  }
+}
