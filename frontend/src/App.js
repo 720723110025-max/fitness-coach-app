@@ -1,8 +1,11 @@
-import React, { useState } from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route, Navigate, Link } from 'react-router-dom';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Dashboard from './pages/Dashboard';
+import PoseDetection from './pages/PoseDetection';
+import WorkoutHistory from './pages/WorkoutHistory';
+import Clock from './pages/Clock';
 import './App.css';
 
 function App() {
@@ -16,6 +19,18 @@ function App() {
         <Route
           path="/dashboard"
           element={isAuthenticated ? <Dashboard /> : <Navigate to="/login" />}
+        />
+        <Route
+          path="/pose-detection"
+          element={isAuthenticated ? <PoseDetection /> : <Navigate to="/login" />}
+        />
+        <Route
+          path="/history"
+          element={isAuthenticated ? <WorkoutHistory /> : <Navigate to="/login" />}
+        />
+        <Route
+          path="/clock"
+          element={<Clock />}
         />
         <Route path="/" element={<Navigate to={isAuthenticated ? '/dashboard' : '/login'} />} />
       </Routes>
